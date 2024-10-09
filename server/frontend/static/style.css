@@ -16,8 +16,8 @@ img{
 .card-nb{
     display: flex;  
     flex-direction: column;
-    margin-left:5%;
-    margin-right:5%;
+    margin-left:2%;
+    margin-right:2%;
     margin-top: 1%;
     margin-bottom: 1%;
   }
@@ -141,17 +141,26 @@ img{
     background-position: center center;
 }
 
+.horizontalLine {
+    background-image: linear-gradient(#AAA, #AAA);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 .contact1 {
     font: sans-serif;
-    font-size: 22px;
-    font-style: bold;
+    /* font-size: 22px; */
+    font-size: 1.1vw;
+    font-weight: bold;
     color: darkturquoise;
     text-align: center;
 }
 
 .contact2 {
     font: sans-serif;
-    font-size: 20px;
+    /* font-size: 20px; */
+    font-size: 1vw;
     color: darkturquoise;
     text-align: center;
 }
