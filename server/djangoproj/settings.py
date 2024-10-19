@@ -31,11 +31,13 @@ DEBUG = True
 ALLOWED_HOSTS=['localhost','https://u202010296-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
 CSRF_TRUSTED_ORIGINS=['https://u202010296-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai' ]
 
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://u202010296-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",  # Adjust this to match your frontend domain
+]
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ORIGIN_ALLOW_ALL = True
 
 
 
