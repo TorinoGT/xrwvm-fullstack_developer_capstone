@@ -25,17 +25,18 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 autopep8
 
+    - name: Auto-fix Python Code Issues
+      run: |
+        # This command runs autopep8 to automatically fix PEP8 issues
+        find . -name "*.py" -exec autopep8 --in-place --aggressive --aggressive {} +
+        echo "Autopep8 has fixed Python files successfully"
+
     - name: Lint Python Files
       run: |
         # This command finds all Python files recursively and runs flake8 on them
         find . -name "*.py" -exec flake8 {} +
         echo "Linted all Python files successfully"
 
-    - name: Auto-fix Python Code Issues
-      run: |
-        # This command runs autopep8 to automatically fix PEP8 issues
-        find . -name "*.py" -exec autopep8 --in-place --aggressive --aggressive {} +
-        echo "Autopep8 has fixed Python files successfully"
 
   lint_js:
     name: Lint and Format JavaScript Files
@@ -54,12 +55,6 @@ jobs:
       run: |
         npm install eslint prettier --save-dev
 
-    - name: Run ESLint to Check for Errors
-      run: |
-        # This command runs ESLint on JavaScript files
-        npx eslint './**/*.js' --ext .js || true
-        echo "Linted all JavaScript files successfully"
-
     - name: Auto-fix JavaScript Code Issues with ESLint and Prettier
       run: |
         # Run ESLint with --fix to auto-correct issues
@@ -67,3 +62,9 @@ jobs:
         # Run Prettier to ensure consistent code formatting
         npx prettier --write './**/*.js'
         echo "Auto-fix applied with ESLint and Prettier"
+
+    - name: Run ESLint to Check for Errors
+      run: |
+        # This command runs ESLint on JavaScript files
+        npx eslint './**/*.js' --ext .js || true
+        echo "Linted all JavaScript files successfully"
