@@ -66,5 +66,5 @@ jobs:
     - name: Run ESLint to Check for Errors
       run: |
         # This command runs ESLint on JavaScript files
-        npx eslint './**/*.js' --ext .js || true
+        npx eslint './**/*.js' --ext=.js || true
         echo "Linted all JavaScript files successfully"
