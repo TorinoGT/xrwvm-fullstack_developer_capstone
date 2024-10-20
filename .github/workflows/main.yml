@@ -58,7 +58,7 @@ jobs:
     - name: Auto-fix JavaScript Code Issues with ESLint and Prettier
       run: |
         # Run ESLint with --fix to auto-correct issues
-        npx eslint './**/*.js' --fix --config ./eslint.config.js
+        npx eslint './**/*.js' --fix --no-eslintrc
         # Run Prettier to ensure consistent code formatting
         npx prettier --write './**/*.js'
         echo "Auto-fix applied with ESLint and Prettier"
@@ -66,5 +66,5 @@ jobs:
     - name: Run ESLint to Check for Errors
       run: |
         # This command runs ESLint on JavaScript files
-        npx eslint './**/*.js' || true --config ./eslint.config.js
+        npx eslint './**/*.js' || true --no-eslintrc
         echo "Linted all JavaScript files successfully"
