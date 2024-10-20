@@ -49,7 +49,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20'
+        node-version: '16'
 
     - name: Install Dependencies
       run: |
@@ -58,7 +58,7 @@ jobs:
     - name: Auto-fix JavaScript Code Issues with ESLint and Prettier
       run: |
         # Run ESLint with --fix to auto-correct issues
-        npx eslint './**/*.js' --fix --ext .js
+        npx eslint './**/*.js' --fix --ext=.js
         # Run Prettier to ensure consistent code formatting
         npx prettier --write './**/*.js'
         echo "Auto-fix applied with ESLint and Prettier"
