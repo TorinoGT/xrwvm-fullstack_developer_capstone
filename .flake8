@@ -1,0 +1,8 @@
+[flake8]
+max-line-length = 120  # Increase the max line length
+ignore =
+    E501,  # Ignore long lines
+    F401,  # Ignore unused imports
+    F841,  # Ignore unused variables
+    E712,
+    F811,
