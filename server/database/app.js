@@ -9,7 +9,7 @@ app.use(cors())
 app.use(require('body-parser').urlencoded({ extended: false }));
 
 const corsOptions = {
-   origin: 'https://u202010296-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
+   origin: 'https://u202010296-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
    optionsSuccessStatus: 200,
  };
 
