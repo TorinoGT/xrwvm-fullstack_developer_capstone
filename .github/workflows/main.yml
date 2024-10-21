@@ -56,6 +56,8 @@ jobs:
         npm install eslint prettier --save-dev
         npm install eslint-plugin-react --save-dev
         npm install eslint-plugin-react eslint-plugin-react-hooks @babel/eslint-parser --save-dev
+        npm install @babel/plugin-syntax-jsx --save-dev
+
 
     - name: Auto-fix JavaScript Code Issues with ESLint and Prettier
       run: |
