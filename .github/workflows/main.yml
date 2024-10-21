@@ -1,4 +1,4 @@
-name: 'Lint and Format Code'
+name: 'Lint Code'
 
 on:
   push:
@@ -8,10 +8,11 @@ on:
 
 jobs:
   lint_python:
-    name: Lint and Format Python Files
+    name: Lint Python Files
     runs-on: ubuntu-latest
 
     steps:
+
     - name: Checkout Repository
       uses: actions/checkout@v3
     
@@ -23,52 +24,36 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 autopep8
+        pip install flake8
 
-    - name: Auto-fix Python Code Issues
-      run: |
-        # This command runs autopep8 to automatically fix PEP8 issues
-        find . -name "*.py" -exec autopep8 --in-place --aggressive --aggressive {} +
-        echo "Autopep8 has fixed Python files successfully"
+    - name: Print working directory
+      run: pwd
 
-    - name: Lint Python Files
+    - name: Run Linter
       run: |
+        pwd
         # This command finds all Python files recursively and runs flake8 on them
         find . -name "*.py" -exec flake8 {} +
-        echo "Linted all Python files successfully"
-
+        echo "Linted all the python files successfully"
 
   lint_js:
-    name: Lint and Format JavaScript Files
-    runs-on: ubuntu-latest
+      name: Lint JavaScript Files
+      runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: Install Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
 
-    - name: Install Dependencies
-      run: |
-        npm install eslint prettier --save-dev
-        npm install eslint-plugin-react --save-dev
-        npm install eslint-plugin-react eslint-plugin-react-hooks @babel/eslint-parser --save-dev
-        npm install @babel/plugin-syntax-jsx --save-dev
+      - name: Install JSHint
+        run: npm install jshint --global
 
-
-    - name: Auto-fix JavaScript Code Issues with ESLint and Prettier
-      run: |
-        # Run ESLint with --fix to auto-correct issues
-        npx eslint './**/*.js' --fix --config ./eslint.config.js
-        # Run Prettier to ensure consistent code formatting
-        npx prettier --write './**/*.js'
-        echo "Auto-fix applied with ESLint and Prettier"
-
-    - name: Run ESLint to Check for Errors
-      run: |
-        # This command runs ESLint on JavaScript files
-        npx eslint './**/*.js' || true --config ./eslint.config.js
-        echo "Linted all JavaScript files successfully"
+      - name: Run Linter
+        run: |
+          # This command finds all JavaScript files recursively and runs JSHint on them
+          find ./server/database -name "*.js" -exec jshint {} +
+          echo "Linted all the js files successfully"
