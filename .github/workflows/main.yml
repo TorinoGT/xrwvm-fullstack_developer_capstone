@@ -54,6 +54,7 @@ jobs:
     - name: Install Dependencies
       run: |
         npm install eslint prettier --save-dev
+        npm install eslint-plugin-react --save-dev
 
     - name: Auto-fix JavaScript Code Issues with ESLint and Prettier
       run: |
